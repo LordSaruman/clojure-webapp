@@ -10,7 +10,7 @@
                  [de.ubercode.clostache/clostache "1.4.0"]
                  [ring-basic-authentication "1.0.5"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler filip-clojure-final.core/-main}
+  :ring {:handler clojure-webapp.core/-main}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})

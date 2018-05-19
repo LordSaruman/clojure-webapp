@@ -7,7 +7,7 @@
 
 (defn read-template [template-name]
   (slurp (clojure.java.io/resource
-           (str "views/" template-name ".mustache"))))
+           (str "pages/" template-name ".mustache"))))
 
 (defn render-template [template-file params]
   (clostache/render (read-template template-file) params))
