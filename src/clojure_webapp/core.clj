@@ -18,6 +18,8 @@
            (route/resources "/")
            (GET "/interests" [] (controller/interests))
            (route/resources "/")
+           (GET "/homepage" [] (controller/home))
+           (route/resources "/")
 
            (GET "/model/banks/:id/remove" [id]
              (do (bank-domain/removeBank id)

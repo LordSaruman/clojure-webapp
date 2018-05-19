@@ -13,6 +13,9 @@
   (clostache/render (read-template template-file) params))
 
 
+(defn home []
+  (render-template "homepage" {}))
+
 (defn index []
   (render-template "index" {}))
 
