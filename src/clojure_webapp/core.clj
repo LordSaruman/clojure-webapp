@@ -6,9 +6,7 @@
             [ring.util.response :as resp]
             [clojure-webapp.webController.controller :as controller]
             [clojure-webapp.domain.bank :as bank-domain]
-            [clojure-webapp.domain.euribor :as euribor-domain]
-            [clojure-webapp.domain.interest :as interest-domain]
-            [clojure-webapp.domain.typeinterest :as typeinterest-domain]))
+            [clojure-webapp.domain.interest :as interest-domain]))
 
 
 (defroutes public-routes
@@ -37,13 +35,13 @@
              (do (interest-domain/insertInterest params)
                  (resp/redirect "/interests")))
 
-           (GET "/model/banks/:id/update" [id] (controller/updatingBanks id))
+           (GET "/model/banks/:id/update" [id] (controller/updatingBank id))
 
            (POST "/model/banks/:id_bank/update" [& params]
              (do (bank-domain/update (:id_bank params) params)
                  (resp/redirect "/banks")))
 
-           (GET "/model/interests/:id/update" [id] (controller/updatingInterests id))
+           (GET "/model/interests/:id/update" [id] (controller/updatingInterest id))
 
            (POST "/model/interests/:id_interest/update" [& params]
              (do (interest-domain/update (:id_interest params) params)
