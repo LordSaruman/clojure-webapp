@@ -20,7 +20,8 @@
   (render-template "index" {}))
 
 (defn allBanks []
-  (render-template "allBanks" {}))
+  (render-template "allBanks" {:bank (bank-domain/allBanks)
+                               :euribor (bank-domain/allEuribor)}))
 
 (defn banks[]
   (render-template "banks" {:bank (bank-domain/allBanks)
