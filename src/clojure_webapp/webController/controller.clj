@@ -19,6 +19,9 @@
 (defn index []
   (render-template "index" {}))
 
+(defn allBanks []
+  (render-template "allBanks" {}))
+
 (defn banks[]
   (render-template "banks" {:bank (bank-domain/allBanks)
                             :euribor (bank-domain/allEuribor)}))
