@@ -23,6 +23,9 @@
   (render-template "allBanks" {:bank (bank-domain/allBanks)
                                :euribor (bank-domain/allEuribor)}))
 
+(defn newBank []
+  (render-template "newBank" {}))
+
 (defn banks[]
   (render-template "banks" {:bank (bank-domain/allBanks)
                             :euribor (bank-domain/allEuribor)}))

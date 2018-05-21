@@ -22,32 +22,34 @@
            (route/resources "/")
            (GET "/allBanks" [] (controller/allBanks))
            (route/resources "/")
+           (GET "/newBank" [] (controller/newBank))
+           (route/resources "/")
 
-           (GET "/model/banks/:id/remove" [id]
+           (GET "/domain/banks/:id/remove" [id]
              (do (bank-domain/removeBank id)
-                 (resp/redirect "/banks")))
+                 (resp/redirect "/allBanks")))
 
-           (GET "/model/interests/:id/remove" [id]
+           (GET "/domain/interests/:id/remove" [id]
              (do (interest-domain/removeInterest id)
                  (resp/redirect "/interests")))
 
-           (POST "/model/banks/insert" [& params]
+           (POST "/domain/banks/insert" [& params]
              (do (bank-domain/insertBank params)
-                 (resp/redirect "/banks")))
+                 (resp/redirect "/allBanks")))
 
-           (POST "/model/interests/insert" [& params]
+           (POST "/domain/interests/insert" [& params]
              (do (interest-domain/insertInterest params)
                  (resp/redirect "/interests")))
 
-           (GET "/model/banks/:id/update" [id] (controller/updatingBank id))
+           (GET "/domain/banks/:id/update" [id] (controller/updatingBank id))
 
-           (POST "/model/banks/:id_bank/update" [& params]
+           (POST "/domain/banks/:id_bank/update" [& params]
              (do (bank-domain/update (:id_bank params) params)
-                 (resp/redirect "/banks")))
+                 (resp/redirect "/allBanks")))
 
-           (GET "/model/interests/:id/update" [id] (controller/updatingInterest id))
+           (GET "/domain/interests/:id/update" [id] (controller/updatingInterest id))
 
-           (POST "/model/interests/:id_interest/update" [& params]
+           (POST "/domain/interests/:id_interest/update" [& params]
              (do (interest-domain/update (:id_interest params) params)
                  (resp/redirect "/interests")))
 
