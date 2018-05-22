@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Clojure webapp - banks</title>
+    <title>Clojure webapp - interests</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -95,22 +95,19 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>BANKS
+                                    <h2>INTERESTS
                                     </h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <p class="text-muted font-13 m-b-30">The table show all available banks</p>
+                                    <p class="text-muted font-13 m-b-30">The table show all interests</p>
                                     <table id="datatable-banks" class="table table-striped table-bordered">
                                         <thead>
                                         <tr>
                                             <th>Number</th>
-                                            <th>Identification number</th>
-                                            <th>Bank name</th>
-                                            <th>Max months for loan</th>
-                                            <th>Max credit for loan</th>
-                                            <th>Administrative costs</th>
-                                            <th>Euribor</th>
+                                            <th>Name of the bank</th>
+                                            <th>Value of the interest</th>
+                                            <th>Type of interest</th>
                                             <th>Update &nbsp;</th>
                                             <th>Delete &nbsp;</th>
                                         </tr>
@@ -118,23 +115,20 @@
 
                                         <tbody>
 
-                                        {{#bank}}
+                                        {{#interest}}
                                             <tr data-row-subject-id="">
-                                                <td>{{id_bank}}</td>
-                                                <td>{{identification_number}}</td>
-                                                <td>{{bank_name}}</td>
-                                                <td>{{max_months}}</td>
-                                                <td>{{max_credit}}</td>
-                                                <td>{{administrative_costs}}</td>
-                                                <td>{{id_euribor}}</td>
-                                                <td><a href="/domain/banks/{{id_bank}}/update"><i class="fa fa-pencil-square-o"></i></a></td>
-                                                <td><a href="/domain/banks/{{id_bank}}/remove"><i class="fa fa-remove"></i></a></td>
+                                                <td>{{id_interest}}</td>
+                                                <td>{{name}}</td>
+                                                <td>{{value}}</td>
+                                                <td>{{id_typeinterest}}</td>
+                                                <td><a href="/domain/interests/{{id_interest}}/update"><i class="fa fa-pencil-square-o"></i></a></td>
+                                                <td><a href="/domain/interests/{{id_interest}}/remove"><i class="fa fa-remove"></i></a></td>
                                             </tr>
-                                        {{/bank}}
+                                        {{/interest}}
                                         </tbody>
                                     </table>
                                 </div>
-                                <p>Want to add new Bank? <button class="btn btn-primary" id="addBank" onclick="addNewBank()">Add new bank</button> </p>
+                                <p>Want to add new interest? <button class="btn btn-primary" id="addInterest" onclick="addNewInterest()">Add new interest</button> </p>
                             </div>
                         </div>
 

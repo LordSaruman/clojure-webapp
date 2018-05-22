@@ -22,6 +22,8 @@
            (route/resources "/")
            (GET "/allBanks" [] (controller/allBanks))
            (route/resources "/")
+           (GET "/allInterests" [] (controller/allInterests))
+           (route/resources "/")
 
            (GET "/domain/banks/:id/remove" [id]
              (do (bank-domain/removeBank id)
@@ -29,7 +31,7 @@
 
            (GET "/domain/interests/:id/remove" [id]
              (do (interest-domain/removeInterest id)
-                 (resp/redirect "/interests")))
+                 (resp/redirect "/allInterests")))
 
            (POST "/domain/banks/insert" [& params]
              (do (bank-domain/insertBank params)
@@ -37,7 +39,7 @@
 
            (POST "/domain/interests/insert" [& params]
              (do (interest-domain/insertInterest params)
-                 (resp/redirect "/interests")))
+                 (resp/redirect "/allInterests")))
 
            (GET "/domain/banks/:id/update" [id]
              (controller/updatingBank id))
@@ -51,7 +53,7 @@
 
            (POST "/domain/interests/:id_interest/update" [& params]
              (do (interest-domain/update (:id_interest params) params)
-                 (resp/redirect "/interests")))
+                 (resp/redirect "/allInterests")))
 
            )
 

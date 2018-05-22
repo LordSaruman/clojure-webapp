@@ -23,6 +23,10 @@
   (render-template "allBanks" {:bank (bank-domain/allBanks)
                                :euribor (bank-domain/allEuribor)}))
 
+(defn allInterests []
+  (render-template "allInterests" {:interest (interest-domain/allInterests)
+                               :typeinterest (interest-domain/allTypeInterest)}))
+
 (defn banks[]
   (render-template "banks" {:bank (bank-domain/allBanks)
                             :euribor (bank-domain/allEuribor)}))
