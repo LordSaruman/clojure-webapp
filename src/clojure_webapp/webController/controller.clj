@@ -23,9 +23,6 @@
   (render-template "allBanks" {:bank (bank-domain/allBanks)
                                :euribor (bank-domain/allEuribor)}))
 
-(defn newBank []
-  (render-template "newBank" {}))
-
 (defn banks[]
   (render-template "banks" {:bank (bank-domain/allBanks)
                             :euribor (bank-domain/allEuribor)}))
@@ -36,11 +33,9 @@
 
 (defn updatingInterest [id]
   (render-template "updateInterest" {:interest (interest-domain/get id)
-                                     :typeinterest (interest-domain/allTypeInterest)
-                                     }))
+                                     :typeinterest (interest-domain/allTypeInterest)}))
 
 
 (defn interests []
   (render-template "interests" {:interest (interest-domain/allInterests)
-                                :typeinterest (interest-domain/allTypeInterest)
-                                }))
+                                :typeinterest (interest-domain/allTypeInterest)}))
