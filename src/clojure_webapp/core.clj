@@ -8,7 +8,6 @@
             [clojure-webapp.domain.bank :as bank-domain]
             [clojure-webapp.domain.interest :as interest-domain]))
 
-
 (defroutes public-routes
            (GET "/" [] (controller/index))
            (route/resources "/")
@@ -61,7 +60,7 @@
 
 (defroutes app-routes
            public-routes
-           (route/not-found "404 Not Found"))
+           (route/not-found "404. Page not found"))
 
 (def -main
   (handler/site app-routes))
